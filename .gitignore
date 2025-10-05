@@ -1,0 +1,33 @@
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
+
+# Node dependencies
+node_modules
+
+# Logs
+*.log*
+
+# Misc
+.DS_Store
+.fleet
+.idea
+
+# Local env files - SÉCURITÉ CRITIQUE
+.env
+.env.*
+!.env.example
+
+# Clés et tokens
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Fichiers de configuration sensibles
+config/secrets.js
+config/keys.js

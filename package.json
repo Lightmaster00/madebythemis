@@ -1,0 +1,29 @@
+{
+  "name": "madebythemis",
+  "version": "1.0.0",
+  "description": "Site web Made by Themis - Services de conception et impression 3D",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "generate-token": "node scripts/generate-token.js",
+    "setup-security": "node scripts/generate-token.js && echo 'Copiez config/env.example vers .env et configurez votre clé'",
+    "deploy": "npm run generate && echo 'Site généré dans .output/public - Prêt pour GitHub Pages'",
+    "deploy:github": "npm run generate && echo 'Site généré - Push vers GitHub pour déploiement automatique'"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxtjs/tailwindcss": "^6.8.4",
+    "nuxt": "^3.8.0"
+  },
+  "dependencies": {
+    "@headlessui/vue": "^1.7.16",
+    "@heroicons/vue": "^2.0.18",
+    "@nuxtjs/google-fonts": "^3.0.2",
+    "nuxt-icon": "^0.6.6"
+  }
+}
