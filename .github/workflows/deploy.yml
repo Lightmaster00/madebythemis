@@ -28,7 +28,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '22'
           cache: 'npm'
 
       - name: Install dependencies
@@ -37,6 +37,7 @@ jobs:
       - name: Generate static site
         run: npm run generate
         env:
+          NODE_ENV: production
           NUXT_N8N_AUTH_TOKEN: ${{ secrets.N8N_AUTH_TOKEN }}
           NUXT_N8N_WEBHOOK_URL: ${{ secrets.N8N_WEBHOOK_URL }}
           NUXT_CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
