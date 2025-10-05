@@ -90,32 +90,6 @@
                 ></textarea>
               </div>
               
-              <!-- Authentification n8n -->
-              <div class="mb-6">
-                <div class="bg-blue-50 rounded-lg p-4 border border-blue-200">
-                  <h4 class="text-sm font-medium text-blue-900 mb-3">🔐 Authentification sécurisée</h4>
-                  <p class="text-sm text-blue-700 mb-3">
-                    Votre demande sera vérifiée par notre système d'authentification avant traitement.
-                  </p>
-                  <div class="flex items-center space-x-2">
-                    <Icon name="heroicons:shield-check" class="w-5 h-5 text-blue-600" />
-                    <span class="text-sm text-blue-600 font-medium">Protection anti-spam activée</span>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="flex items-start">
-                <input 
-                  type="checkbox" 
-                  id="confidentialite" 
-                  v-model="form.confidentialite" 
-                  required 
-                  class="mt-1 h-4 w-4 text-gray-600 focus:ring-gray-500 border-gray-300 rounded"
-                >
-                <label for="confidentialite" class="ml-3 text-sm text-gray-600">
-                  J'accepte la <NuxtLink to="/legal/privacy" class="text-gray-900 hover:underline">politique de confidentialité</NuxtLink> *
-                </label>
-              </div>
               
               <!-- Message de statut -->
               <div v-if="statusMessage" :class="statusClasses" class="p-4 rounded-lg">
@@ -203,8 +177,7 @@ const form = ref({
   email: '',
   telephone: '',
   type_projet: '',
-  description: '',
-  confidentialite: false
+  description: ''
 })
 
 const isSubmitting = ref(false)
@@ -237,10 +210,6 @@ const validateForm = () => {
     return 'Tous les champs obligatoires doivent être remplis.'
   }
   
-  // Validation de l'acceptation des conditions
-  if (!form.value.confidentialite) {
-    return 'Vous devez accepter la politique de confidentialité.'
-  }
   
   // Validation de l'email
   if (!patterns.email.test(form.value.email)) {
@@ -331,7 +300,6 @@ const submitForm = async () => {
       telephone: form.value.telephone.trim() || '',
       type_projet: form.value.type_projet,
       description: form.value.description.trim(),
-      confidentialite: form.value.confidentialite ? 'Oui' : 'Non',
       timestamp: new Date().toISOString(),
       source: 'Site web Made by Themis',
       userAgent: navigator.userAgent,
@@ -372,8 +340,7 @@ const submitForm = async () => {
       email: '',
       telephone: '',
       type_projet: '',
-      description: '',
-      confidentialite: false
+      description: ''
     }
     
   } catch (error) {
