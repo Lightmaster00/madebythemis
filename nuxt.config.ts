@@ -44,6 +44,7 @@ export default defineNuxtConfig({
 
   // Configuration pour GitHub Pages
   ssr: false, // Mode statique pour GitHub Pages
+  
   nitro: {
     prerender: {
       routes: ['/']
